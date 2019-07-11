@@ -1,6 +1,6 @@
 {
     "name": "e-satisfaction Integration",
-    "version": "1.0",
+    "version": "0.1",
     "description": "Easily test the e-satisfaction Library on your website without any coding.",
     "permissions": [
         "activeTab"
