@@ -1,0 +1,30 @@
+.panel {
+    &.no-background {
+        &, .panel-heading {
+            background: none;
+            box-shadow: none;
+        }
+    }
+
+    &.no-border {
+        &, .panel-heading {
+            border: none;
+        }
+    }
+
+    .panel-title {
+        cursor: pointer;
+    }
+
+    .panel-body {
+        display: none;
+    }
+
+    &.initialized .panel-body {
+        display: block;
+    }
+}
+
+.panel-body-no-padding {
+    padding: 0;
+}

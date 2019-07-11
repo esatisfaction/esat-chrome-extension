@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>e-satisfaction Integration Configuration</title>
+    <script src="js/popup/core/jquery.min.js"></script>
+    <script src="js/popup/core/bootstrap.min.js"></script>
+    <script src="js/popup/plugins/forms.js"></script>
+    <script src="js/popup/plugins/navigation.js"></script>
+    <script src="js/popup/plugins/forms/selects/bootstrap_select.min.js"></script>
+    <script src="js/popup/plugins/forms/selects/select2.min.js"></script>
+    <script src="js/popup/plugins/forms/styling/switch.min.js"></script>
+    <script src="js/popup/plugins/forms/styling/uniform.min.js"></script>
+    <script src="js/popup/popup.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lato|Montserrat">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900">
+    <link rel="stylesheet" type="text/css" href="css/lib/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/core.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/components.css">
+    <link rel="stylesheet" type="text/css" href="css/lib/colors.css">
+    <link rel="stylesheet" type="text/css" href="css/popup.css">
+    <link rel="stylesheet" type="text/css" href="css/icons/icomoon/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
+    <link rel="stylesheet" type="text/css" href="css/branding.css">
+    <link rel="stylesheet" type="text/css" href="css/forms.css">
+    <link rel="stylesheet" type="text/css" href="css/panels.css">
+</head>
+<body>
+<div class="navbar navbar-inverse navbar-fixed-top esat-navbar">
+    <div class="navbar-header">
+        <a class="navbar-brand pt-10 pb-10" href="https://www.e-satisfaction.com" target="_blank">
+            <img src="logo-white-rectangle.png" alt=""></a>
+    </div>
+</div>
+<div class="main-panel panel">
+    <div class="panel-heading">Test e-satisfaction Integration to your website</div>
+    <form id="e-satisfaction-config-form" class="panel-body">
+        <div class="alert alert-warning alert-styled-left">This is a temporary integration and will be removed when you refresh the page or navigate!</div>
+        <div class="form-group">
+            <label for="application-id">Application Id</label>
+            <span class="text-danger">*</span>
+            <input type="text" class="form-control" id="application-id" placeholder="Application Id" name="application_id" required>
+            <small id="application-id-help" class="form-text text-muted">Type in the Application Id you want to integrate to this website.</small>
+        </div>
+        <div class="questionnaire-overrides"></div>
+        <template class="questionnaire-override-container-template">
+            <div class="questionnaire-override-container panel panel-collapsed">
+                <div class="panel-heading">
+                    <h6 class="panel-title">Override Questionnaire Settings</h6>
+                    <div class="heading-elements not-collapsible">
+                        <ul class="icons-list">
+                            <li><a data-action="delete"><i class="icon-trash"></i></a></li>
+                            <li><a data-action="collapse" class="rotate-180"></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="questionnaire-id">Questionnaire Id</label>
+                        <input type="text" class="form-control" id="questionnaire-id" placeholder="Questionnaire Id" name="questionnaire_id">
+                        <small class="form-text text-muted">Type in the Questionnaire Id you want to set the integration settings for.</small>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 integration-locale-auto-detect">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="integration-locale-auto-detect" type="checkbox" name="locale_autodetect" class="form-control styled integration-locale-auto-detect">
+                                        <span>Auto-detect Language</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="questionnaire-locale">Language</label>
+                                <select id="questionnaire-locale" name="locale" class="bootstrap-select questionnaire-locale" data-width="100%">
+                                    <option value="ca">Catalan</option>
+                                    <option value="el">Greek</option>
+                                    <option value="el-formal">Greek (formal)</option>
+                                    <option value="en">English</option>
+                                    <option value="en-us">English (US)</option>
+                                    <option value="es">Spanish</option>
+                                    <option value="ro">Romanian</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="integration-type">Type</label>
+                        <select id="integration-type" name="type" class="bootstrap-select integration-type" data-width="100%" tabindex="-98">
+                            <option id="box" class="type-list-item" value="box">Box</option>
+                            <option id="box_classic" class="type-list-item" value="box_classic">Box Classic (Popup)</option>
+                            <option id="embed" class="type-list-item" value="embed">Embedded</option>
+                        </select>
+                    </div>
+                    <div class="integration-position integration-position-box">
+                        <div class="form-group">
+                            <label for="integration-position-box">Questionnaire Position</label>
+                            <select id="integration-position-box" name="position-box" class="bootstrap-select" data-width="100%">
+                                <option id="left-top" value="left|top">Top left corner</option>
+                                <option id="right-top" value="right|top">Top right corner</option>
+                                <option id="left-bottom" value="left|bottom" selected>Bottom left corner</option>
+                                <option id="right-bottom" value="right|bottom">Bottom right corner</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="box-maximized" type="checkbox" name="box_maximized" class="form-control styled">
+                                    <span>Maximized</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="integration-position integration-position-embed">
+                        <div class="form-group">
+                            <label for="integration-position-embed">Questionnaire Position</label>
+                            <input id="integration-position-embed" name="position-embed" type="text" class="form-control">
+                            <span class="help-block">
+                        <span>Write your own placeholder to set questionnaire's position. See</span>
+                        <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">css selectors</a>
+                    </span>
+                        </div>
+                        <div class="form-group">
+                            <label for="integration-position-type">Position Type</label>
+                            <select id="integration-position-type" name="position_type" class="bootstrap-select" data-width="100%">
+                                <option value="before">Before</option>
+                                <option value="inside" selected>Inside</option>
+                                <option value="after">After</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <div class="controls text-right">
+            <button type="button" class="btn btn-add-questionnaire" style="float: left;">
+                <i class="icon-plus2"></i>
+                <span>Add Questionnaire Override</span>
+            </button>
+            <button type="submit" class="btn btn-primary bg-esat-primary">Apply Integration</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.panel.no-background, .panel.no-background .panel-heading {
+  background: none;
+  box-shadow: none; }
+.panel.no-border, .panel.no-border .panel-heading {
+  border: none; }
+.panel .panel-title {
+  cursor: pointer; }
+.panel .panel-body {
+  display: none; }
+.panel.initialized .panel-body {
+  display: block; }
+
+.panel-body-no-padding {
+  padding: 0; }
+
+/*# sourceMappingURL=panels.css.map */

@@ -1,0 +1,62 @@
+
+.bg-esat-primary {
+    background-color: #28a9e1;
+    border-color: #28a9e1;
+    color: #fff;
+}
+
+.border-esat-primary {
+    border-color: #28a9e1;
+}
+
+.border-left-esat-primary {
+    border-left-color: #28a9e1;
+}
+
+.border-top-esat-primary {
+    border-top-color: #28a9e1;
+}
+
+.text-esat-primary,
+.text-esat-primary:hover,
+.text-esat-primary:focus {
+    color: #28a9e1;
+}
+
+.bg-esat-cta {
+    background-color: #f85e2f;
+    border-color: #f85e2f;
+    color: #fff;
+}
+
+.border-esat-cta {
+    border-color: #f85e2f;
+}
+
+.border-left-esat-cta {
+    border-left-color: #f85e2f;
+}
+
+.border-top-esat-cta {
+    border-top-color: #f85e2f;
+}
+
+.text-esat-cta,
+.text-esat-cta:hover,
+.text-esat-cta:focus {
+    color: #f85e2f;
+}
+
+.modal-esat-header {
+    .modal-header {
+        .modal-title {
+            color: #28a9e1;
+            font-size: 24px;
+            font-weight: bold;
+        }
+    }
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+    background-color: #28a9e1 !important;
+}

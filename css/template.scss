@@ -1,0 +1,33 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', 'Lato', 'Roboto', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
+}
+
+a, a.visited, a:hover {
+    text-decoration: none !important;
+    outline: none !important;
+}
+
+a img {
+    border: none !important;
+    outline: none !important;
+}
+
+.block-loading {
+    min-height: 70px;
+}
+
+.esat-navbar {
+    background-color: #28a9e1 !important;
+    border: none;
+}
+
+.navbar-header {
+    .navbar-brand img {
+        height: 28px;
+        margin-top: 0;
+    }
+}

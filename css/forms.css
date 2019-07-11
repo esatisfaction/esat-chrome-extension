@@ -1,0 +1,17 @@
+form label {
+  font-weight: bold;
+  font-size: 14px; }
+
+.form-submit-float-right {
+  padding-top: 20px;
+  margin-top: 7px; }
+
+.dt-rowReorder-float {
+  z-index: 1500; }
+
+.nav-pill-target {
+  display: none; }
+  .nav-pill-target.active {
+    display: block; }
+
+/*# sourceMappingURL=forms.css.map */
