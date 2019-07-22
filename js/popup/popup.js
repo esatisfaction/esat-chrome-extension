@@ -105,6 +105,8 @@
             }
 
             // Get all other settings
+            let active = $(this).find('input[name="active"]').prop('checked');
+            let activeMobile = $(this).find('input[name="active_mobile"]').prop('checked');
             let locale = $(this).find('select[name="locale"]').val();
             let localeAutodetect = $(this).find('input[name="locale_autodetect"]').prop('checked');
             let type = $(this).find('select[name="type"]').val();
@@ -119,6 +121,8 @@
 
             // Add to collection override configuration
             collectionOverride[questionnaireId] = {
+                active: active,
+                active_mobile: activeMobile,
                 locale: locale,
                 locale_autodetect: localeAutodetect,
                 type: type,
