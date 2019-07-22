@@ -8,7 +8,7 @@
         });
 
         // Enable/Disable language
-        $(document).on('change', '#integration-locale-auto-detect', function () {
+        $(document).on('change, switchChange.bootstrapSwitch', '#integration-locale-auto-detect', function () {
             checkIntegrationLocaleAutodetect();
         });
 
@@ -50,7 +50,7 @@
      * Enable/Disable language selector based on auto-detect option
      */
     function checkIntegrationLocaleAutodetect() {
-        $('.integration-locale-auto-detect').each(function () {
+        $('#integration-locale-auto-detect').each(function () {
             let parent = $(this).closest('.questionnaire-override-container');
             let state = $(this).prop('checked');
             parent.find('.questionnaire-locale').toggleClass('disabled', state).prop("disabled", state);

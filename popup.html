@@ -78,12 +78,10 @@
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6 integration-locale-auto-detect">
-                                <div class="checkbox">
-                                    <label>
-                                        <input id="integration-locale-auto-detect" type="checkbox" name="locale_autodetect" class="form-control styled integration-locale-auto-detect">
-                                        <span>Auto-detect Language</span>
-                                    </label>
-                                </div>
+                                <label for="integration-locale-auto-detect">Auto-detect Language</label>
+                                <br/>
+                                <input id="integration-locale-auto-detect" type="checkbox" name="locale_autodetect" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off" checked>
+                                <span class="help-block">Enable Auto-detect to allow the browser to determine the questionnaire language for the user.</span>
                             </div>
                             <div class="col-md-6">
                                 <label for="questionnaire-locale">Language</label>
