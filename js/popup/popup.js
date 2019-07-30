@@ -2,6 +2,22 @@
 (function ($) {
     // Initialize
     $(document).one('ready', function () {
+        // Clear cache
+        $(document).on('click', '.form-group.actions .btn-clear-cache', function () {
+            // Send Message
+            chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+                chrome.tabs.sendMessage(tabs[0].id, {
+                    message: 'clear_cache',
+                });
+            });
+
+            // Display notification
+            EsatChromeExtension.Notifications.jGrowl('Cache cleared', {
+                header: 'Success',
+                theme: 'bg-success-400'
+            });
+        });
+
         // Add panel
         $(document).on('click', '.btn-add-questionnaire', function () {
             let template = $('template.questionnaire-override-container-template').prop('content');
