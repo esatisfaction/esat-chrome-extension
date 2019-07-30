@@ -71,6 +71,12 @@
     $(document).on('click', '.questionnaire-override-container a[data-action="delete"]', function () {
         $(this).closest('.panel').detach();
     });
+
+    // Update panel title with questionnaire id
+    $(document).on('keyup', 'input[name="questionnaire_id"]', function () {
+        let suffix = $(this).val() !== '' ? ' [' + $(this).val() + ']' : '';
+        $(this).closest('.questionnaire-override-container.panel').find('.panel-heading .panel-title').html('Override Questionnaire Settings' + suffix);
+    });
 })(jQuery);
 
 // ==================== INTEGRATE CODE ==================== //
