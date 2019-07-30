@@ -2,6 +2,20 @@
 (function ($) {
     // Initialize
     $(document).one('ready', function () {
+        // Add panel
+        $(document).on('click', '.btn-add-questionnaire', function () {
+            let template = $('template.questionnaire-override-container-template').prop('content');
+            $(template).find('.questionnaire-override-container').clone().appendTo(".questionnaire-overrides");
+            EsatChromeExtension.Navigation.renderPlugins();
+            EsatChromeExtension.Forms.renderPlugins();
+            renderPlugins();
+        });
+
+        // Remove panel
+        $(document).on('click', '.questionnaire-override-container a[data-action="delete"]', function () {
+            $(this).closest('.panel').detach();
+        });
+
         // Set questionnaire position according to type
         $(document).on('change', '#integration-type', function () {
             dispatchPositionOptions();
@@ -10,6 +24,15 @@
         // Enable/Disable language
         $(document).on('change, switchChange.bootstrapSwitch', 'input[name="locale_autodetect"]', function () {
             checkIntegrationLocaleAutodetect();
+        });
+
+        // Update panel title with questionnaire id
+        $(document).on('keyup', 'input[name="questionnaire_id"]', function () {
+            updateQuestionnaireSettingsPanelHeading();
+        });
+        // Update panel with questionnaire type
+        $(document).on('change', 'select[name="type"]', function () {
+            updateQuestionnaireSettingsPanelHeading();
         });
 
         renderPlugins();
@@ -27,6 +50,8 @@
 
         // Render form plugins
         EsatChromeExtension.Forms.renderPlugins();
+
+        updateQuestionnaireSettingsPanelHeading();
     }
 
     /**
@@ -58,25 +83,18 @@
         });
     }
 
-    // Add panel
-    $(document).on('click', '.btn-add-questionnaire', function () {
-        let template = $('template.questionnaire-override-container-template').prop('content');
-        $(template).find('.questionnaire-override-container').clone().appendTo(".questionnaire-overrides");
-        EsatChromeExtension.Navigation.renderPlugins();
-        EsatChromeExtension.Forms.renderPlugins();
-        renderPlugins();
-    });
-
-    // Remove panel
-    $(document).on('click', '.questionnaire-override-container a[data-action="delete"]', function () {
-        $(this).closest('.panel').detach();
-    });
-
-    // Update panel title with questionnaire id
-    $(document).on('keyup', 'input[name="questionnaire_id"]', function () {
-        let suffix = $(this).val() !== '' ? ' [' + $(this).val() + ']' : '';
-        $(this).closest('.questionnaire-override-container.panel').find('.panel-heading .panel-title').html('Override Questionnaire Settings' + suffix);
-    });
+    /**
+     * Update each questionnaire panel heading based on id and type
+     */
+    function updateQuestionnaireSettingsPanelHeading() {
+        $('.questionnaire-override-container').each(function () {
+            let questionnaireId = $(this).find('input[name="questionnaire_id"]').val();
+            let type = $(this).find('select[name="type"]').val();
+            let suffix = questionnaireId !== '' ? ' [' + questionnaireId + ']' : '';
+            suffix += type !== '' ? ' [' + type + ']' : '';
+            $(this).closest('.questionnaire-override-container.panel').find('.panel-heading .panel-title').html('Questionnaire' + suffix);
+        });
+    }
 })(jQuery);
 
 // ==================== INTEGRATE CODE ==================== //
