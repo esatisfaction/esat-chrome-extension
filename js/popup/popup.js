@@ -216,7 +216,6 @@
          * or if a hidden input is not visible
          */
         if (!$(this)[0].checkValidity()) {
-            console.log('form is not valid');
             return false;
         }
 
@@ -259,11 +258,22 @@
                 frequency_cap_days: $(this).find('select[name="frequency_cap_days"]').val(),
             };
         });
-        console.log(collectionOverride);
+
+        // Check if apply or update integration
+        let updateIntegration = $(this).find('input[name="update_integration"]').val() == 1;
 
         // Send Message
         chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
-            chrome.tabs.sendMessage(tabs[0].id, {application_id: applicationId, collection: collectionOverride});
+            chrome.tabs.sendMessage(tabs[0].id, {
+                message: updateIntegration ? 'update_integration' : 'apply_integration',
+                config: {application_id: applicationId, collection: collectionOverride}
+            });
+        });
+
+        // Display notification
+        EsatChromeExtension.Notifications.jGrowl(updateIntegration ? 'Integration Updated' : 'Integration Applied', {
+            header: 'Success',
+            theme: 'bg-success-400'
         });
     });
 })(jQuery);
