@@ -63,12 +63,12 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-sm-6 questionnaire-active">
+                            <div class="col-xs-6 questionnaire-active">
                                 <label for="integration-active">Active</label>
                                 <br/>
                                 <input id="integration-active" type="checkbox" name="active" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off">
                             </div>
-                            <div class="col-sm-6 questionnaire-active-mobile">
+                            <div class="col-xs-6 questionnaire-active-mobile">
                                 <label for="integration-active-mobile">Mobile</label>
                                 <br/>
                                 <input id="integration-active-mobile" type="checkbox" name="active_mobile" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off">
@@ -77,13 +77,13 @@
                     </div>
                     <div class="form-group">
                         <div class="row">
-                            <div class="col-md-6 integration-locale-auto-detect">
+                            <div class="col-xs-6 integration-locale-auto-detect">
                                 <label for="integration-locale-auto-detect">Auto-detect Language</label>
                                 <br/>
                                 <input id="integration-locale-auto-detect" type="checkbox" name="locale_autodetect" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off" checked>
                                 <span class="help-block">Enable Auto-detect to allow the browser to determine the questionnaire language for the user.</span>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-xs-6">
                                 <label for="questionnaire-locale">Language</label>
                                 <select id="questionnaire-locale" name="locale" class="bootstrap-select questionnaire-locale" data-width="100%">
                                     <option value="ca">Catalan</option>
@@ -105,39 +105,43 @@
                             <option id="embed" class="type-list-item" value="embed">Embedded</option>
                         </select>
                     </div>
-                    <div class="integration-position integration-position-box">
-                        <div class="form-group">
-                            <label for="integration-position-box">Questionnaire Position</label>
-                            <select id="integration-position-box" name="position-box" class="bootstrap-select" data-width="100%">
-                                <option id="left-top" value="left|top">Top left corner</option>
-                                <option id="right-top" value="right|top">Top right corner</option>
-                                <option id="left-bottom" value="left|bottom" selected>Bottom left corner</option>
-                                <option id="right-bottom" value="right|bottom">Bottom right corner</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="box-maximized">Maximized</label>
-                            <br/>
-                            <input id="box-maximized" type="checkbox" name="box_maximized" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off">
-                            <span class="help-block">If On, the questionnaire will be displayed automatically to the user. If Off, the user will have to click on the launcher to activate it.</span>
+                    <div class="form-group integration-position integration-position-box">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label for="integration-position-box">Questionnaire Position</label>
+                                <select id="integration-position-box" name="position-box" class="bootstrap-select" data-width="100%">
+                                    <option id="left-top" value="left|top">Top left corner</option>
+                                    <option id="right-top" value="right|top">Top right corner</option>
+                                    <option id="left-bottom" value="left|bottom" selected>Bottom left corner</option>
+                                    <option id="right-bottom" value="right|bottom">Bottom right corner</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="box-maximized">Maximized</label>
+                                <br/>
+                                <input id="box-maximized" type="checkbox" name="box_maximized" class="form-control esat-bootstrap-switch" data-on-text="On" data-off-text="Off">
+                                <span class="help-block">If On, the questionnaire will be displayed automatically to the user. If Off, the user will have to click on the launcher to activate it.</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="integration-position integration-position-embed">
-                        <div class="form-group">
-                            <label for="integration-position-embed">Questionnaire Position</label>
-                            <input id="integration-position-embed" name="position-embed" type="text" class="form-control">
-                            <span class="help-block">
-                        <span>Write your own placeholder to set questionnaire's position. See</span>
-                        <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">css selectors</a>
-                    </span>
-                        </div>
-                        <div class="form-group">
-                            <label for="integration-position-type">Position Type</label>
-                            <select id="integration-position-type" name="position_type" class="bootstrap-select" data-width="100%">
-                                <option value="before">Before</option>
-                                <option value="inside" selected>Inside</option>
-                                <option value="after">After</option>
-                            </select>
+                    <div class="form-group integration-position integration-position-embed">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <label for="integration-position-embed">Questionnaire Position</label>
+                                <input id="integration-position-embed" name="position-embed" type="text" class="form-control">
+                                <span class="help-block">
+                                    <span>Write your own placeholder to set questionnaire's position. See</span>
+                                    <a href="https://www.w3schools.com/cssref/css_selectors.asp" target="_blank">css selectors</a>
+                                </span>
+                            </div>
+                            <div class="col-xs-6">
+                                <label for="integration-position-type">Position Type</label>
+                                <select id="integration-position-type" name="position_type" class="bootstrap-select" data-width="100%">
+                                    <option value="before">Before</option>
+                                    <option value="inside" selected>Inside</option>
+                                    <option value="after">After</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
@@ -145,19 +149,19 @@
                             <div class="col-md-12">
                                 <label>Delay Cap</label>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Minutes</span>
                                             <input name="delay_cap_minutes" type="number" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Hours</span>
                                             <input name="delay_cap_hours" type="number" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Days</span>
                                             <input name="delay_cap_days" type="number" class="form-control">
@@ -173,19 +177,19 @@
                             <div class="col-md-12">
                                 <label>Frequency Cap</label>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Minutes</span>
                                             <input name="frequency_cap_minutes" type="number" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Hours</span>
                                             <input name="frequency_cap_hours" type="number" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-xs-4">
                                         <div class="input-group bootstrap-touchspin">
                                             <span class="input-group-addon bootstrap-touchspin-prefix">Days</span>
                                             <input name="frequency_cap_days" type="number" class="form-control">
