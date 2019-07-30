@@ -52,7 +52,95 @@
         });
 
         renderPlugins();
+
+        getIntegrationInfo();
     });
+
+    function getIntegrationInfo() {
+        // Check if we are in chrome extension environment
+        if (!chrome.tabs) {
+            return;
+        }
+
+        // Check Page Integration
+        chrome.tabs.query({active: true, currentWindow: true}, function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, {
+                message: 'get_integration',
+            }, function (response) {
+                loadIntegrationConfiguration(response);
+            });
+        });
+    }
+
+    function loadIntegrationConfiguration(configuration) {
+        let configurationSettings = JSON.parse(configuration);
+
+        // Enable labels for jQuery and GTM
+        if (configurationSettings.jquery !== null) {
+            $('.config-labels .with-jquery').html('jQuery ' + configurationSettings.jquery);
+        } else {
+            $('.config-labels .with-jquery').remove();
+        }
+        if (!configurationSettings.hasGTM) {
+            $('.config-labels .with-gtm').remove();
+        }
+
+        // Apply Integration Settings
+        if (configurationSettings.config !== null) {
+            // Set form to update integration instead of inserting it
+            $('input[name="update_integration"]').val(1);
+
+            // Set Application Id
+            $('input[name="application_id"]')
+                .val(configurationSettings.config.application_id)
+                .attr('readonly', true);
+
+            // Add all Questionnaire Settings
+            let template = $('template.questionnaire-override-container-template').prop('content');
+            for (let q in configurationSettings.config.collection) {
+                // Get Questionnaire Configuration
+                let questionnaireConfiguration = configurationSettings.config.collection[q];
+
+                // Add panel
+                let qPanel = $(template).find('.questionnaire-override-container').clone().appendTo(".questionnaire-overrides");
+
+                // Set Questionnaire Settings
+                $(qPanel).find('input[name="questionnaire_id"]')
+                    .val(questionnaireConfiguration.questionnaire_id)
+                    .attr('readonly', true);
+                $(qPanel).find('input[name="active"]').prop('checked', questionnaireConfiguration.active);
+                $(qPanel).find('input[name="active_mobile"]').prop('checked', questionnaireConfiguration.active_mobile);
+                $(qPanel).find('select[name="locale"]').val(questionnaireConfiguration.locale);
+                $(qPanel).find('input[name="locale_autodetect"]').prop('checked', questionnaireConfiguration.locale_autodetect);
+                $(qPanel).find('select[name="type"]').val(questionnaireConfiguration.type);
+                if (questionnaireConfiguration.type === 'box' || questionnaireConfiguration.type === 'box_classic') {
+                    $(qPanel).find('.integration-position-box select[name="position-box"]').val(questionnaireConfiguration.position);
+                } else {
+                    $(qPanel).find('.integration-position-embed input[name="position-embed"]').val(questionnaireConfiguration.position);
+                }
+                $(qPanel).find('select[name="position_type"]').val(questionnaireConfiguration.position_type);
+                $(qPanel).find('input[name="box_maximized"]').prop('checked', questionnaireConfiguration.box_maximized);
+                $(qPanel).find('input[name="delay_cap_minutes"]').val(questionnaireConfiguration.delay_cap_minutes);
+                $(qPanel).find('input[name="delay_cap_hours"]').val(questionnaireConfiguration.delay_cap_hours);
+                $(qPanel).find('input[name="delay_cap_days"]').val(questionnaireConfiguration.delay_cap_days);
+                $(qPanel).find('input[name="frequency_cap_minutes"]').val(questionnaireConfiguration.frequency_cap_minutes);
+                $(qPanel).find('input[name="frequency_cap_hours"]').val(questionnaireConfiguration.frequency_cap_hours);
+                $(qPanel).find('input[name="frequency_cap_days"]').val(questionnaireConfiguration.frequency_cap_days);
+                $(qPanel).find('textarea[name="whitelist"]').val(questionnaireConfiguration.whitelist);
+                $(qPanel).find('textarea[name="blacklist"]').val(questionnaireConfiguration.blacklist);
+            }
+
+            // Change button literal
+            $('button[type="submit"]').html('Update Integration');
+
+            // Render ui
+            EsatChromeExtension.Navigation.renderPlugins();
+            EsatChromeExtension.Forms.renderPlugins();
+            renderPlugins();
+        } else {
+            $('.config-labels .with-e-satisfaction').remove();
+        }
+    }
 
     /**
      * Render questionnaire page plugins
