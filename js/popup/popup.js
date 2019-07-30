@@ -126,8 +126,8 @@
                 $(qPanel).find('input[name="frequency_cap_minutes"]').val(questionnaireConfiguration.frequency_cap_minutes);
                 $(qPanel).find('input[name="frequency_cap_hours"]').val(questionnaireConfiguration.frequency_cap_hours);
                 $(qPanel).find('input[name="frequency_cap_days"]').val(questionnaireConfiguration.frequency_cap_days);
-                $(qPanel).find('textarea[name="whitelist"]').val(questionnaireConfiguration.whitelist);
-                $(qPanel).find('textarea[name="blacklist"]').val(questionnaireConfiguration.blacklist);
+                $(qPanel).find('textarea[name="whitelist"]').val(questionnaireConfiguration.whitelist.split(',').join("\n"));
+                $(qPanel).find('textarea[name="blacklist"]').val(questionnaireConfiguration.blacklist.split(',').join("\n"));
             }
 
             // Change button literal
