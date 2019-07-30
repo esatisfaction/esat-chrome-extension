@@ -140,6 +140,80 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Delay Cap</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Minutes</span>
+                                            <input name="delay_cap_minutes" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Hours</span>
+                                            <input name="delay_cap_hours" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Days</span>
+                                            <input name="delay_cap_days" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="help-block">Define the time that the user should wait before the Questionnaire is displayed for the first time.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Frequency Cap</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Minutes</span>
+                                            <input name="frequency_cap_minutes" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Hours</span>
+                                            <input name="frequency_cap_hours" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="input-group bootstrap-touchspin">
+                                            <span class="input-group-addon bootstrap-touchspin-prefix">Days</span>
+                                            <input name="frequency_cap_days" type="number" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <span class="help-block">Define the time that the same visitor should wait before seeing again the questionnaire.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="blacklist" data-translate="partials-questionnaire-integration-settings-form-blacklist">Blacklist</label>
+                                <textarea rows="6" id="blacklist" name="blacklist" class="form-control integration-blacklist" readonly></textarea>
+                                <span class="help-block" data-translate="partials-questionnaire-integration-settings-form-blacklist-helper">Write multiple urls using separate lines.</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="whitelist" data-translate="partials-questionnaire-integration-settings-form-whitelist">Whitelist</label>
+                                <textarea rows="6" id="whitelist" name="whitelist" class="form-control integration-whitelist" readonly></textarea>
+                                <span class="help-block" data-translate="partials-questionnaire-integration-settings-form-whitelist-helper">Write multiple urls using separate lines.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </template>

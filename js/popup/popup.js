@@ -105,10 +105,6 @@
             }
 
             // Get all other settings
-            let active = $(this).find('input[name="active"]').prop('checked');
-            let activeMobile = $(this).find('input[name="active_mobile"]').prop('checked');
-            let locale = $(this).find('select[name="locale"]').val();
-            let localeAutodetect = $(this).find('input[name="locale_autodetect"]').prop('checked');
             let type = $(this).find('select[name="type"]').val();
             let position = '';
             if (type === 'box' || type === 'box_classic') {
@@ -116,19 +112,23 @@
             } else {
                 position = $(this).find('.integration-position-embed input[name="position-embed"]').val();
             }
-            let positionType = $(this).find('select[name="position_type"]').val();
-            let maximized = $(this).find('input[name="box_maximized"]').prop('checked');
 
             // Add to collection override configuration
             collectionOverride[questionnaireId] = {
-                active: active,
-                active_mobile: activeMobile,
-                locale: locale,
-                locale_autodetect: localeAutodetect,
+                active: $(this).find('input[name="active"]').prop('checked'),
+                active_mobile: $(this).find('input[name="active_mobile"]').prop('checked'),
+                locale: $(this).find('select[name="locale"]').val(),
+                locale_autodetect: $(this).find('input[name="locale_autodetect"]').prop('checked'),
                 type: type,
                 position: position,
-                position_type: positionType,
-                box_maximized: maximized
+                position_type: $(this).find('select[name="position_type"]').val(),
+                box_maximized: $(this).find('input[name="box_maximized"]').prop('checked'),
+                delay_cap_minutes: $(this).find('select[name="delay_cap_minutes"]').val(),
+                delay_cap_hours: $(this).find('select[name="delay_cap_hours"]').val(),
+                delay_cap_days: $(this).find('select[name="delay_cap_days"]').val(),
+                frequency_cap_minutes: $(this).find('select[name="frequency_cap_minutes"]').val(),
+                frequency_cap_hours: $(this).find('select[name="frequency_cap_hours"]').val(),
+                frequency_cap_days: $(this).find('select[name="frequency_cap_days"]').val(),
             };
         });
         console.log(collectionOverride);
