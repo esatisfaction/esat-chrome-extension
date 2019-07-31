@@ -65,7 +65,7 @@ You can override the following settings:
 
 ## Troubleshooting
 
-Feel free to contact us through our support [portal](https://support.e-satisfaction.com/hc/en-us/requests/new) here if something goes wrong.
+Feel free to contact us through our [support portal here](https://support.e-satisfaction.com/hc/en-us/requests/new) if something goes wrong.
 
 ## Contributing
 
