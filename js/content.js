@@ -85,6 +85,7 @@ function getIntegration(request, sender, sendResponse) {
             config: window.Esat ? window.Esat.Config.getConfig() : null,
             jquery: window.jQuery !== undefined ? window.jQuery.fn.jquery : null,
             hasGTM: window.google_tag_manager !== undefined,
+            hasRequireJs: window.requirejs !== undefined,
         };
         textarea.value = JSON.stringify(configurationSettings);
     };

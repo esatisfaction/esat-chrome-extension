@@ -75,6 +75,9 @@
         if (!configurationSettings.hasGTM) {
             $('.config-labels .with-gtm').remove();
         }
+        if (!configurationSettings.hasRequireJs) {
+            $('.config-labels .with-require-js').remove();
+        }
 
         // Apply Integration Settings
         if (configurationSettings.config !== null) {
