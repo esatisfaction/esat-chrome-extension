@@ -18,15 +18,6 @@
             });
         });
 
-        // Add panel
-        $(document).on('click', '.btn-add-questionnaire', function () {
-            let template = $('template.questionnaire-override-container-template').prop('content');
-            $(template).find('.questionnaire-override-container').clone().appendTo(".questionnaire-overrides");
-            EsatChromeExtension.Navigation.renderPlugins();
-            EsatChromeExtension.Forms.renderPlugins();
-            renderPlugins();
-        });
-
         // Remove panel
         $(document).on('click', '.questionnaire-override-container a[data-action="delete"]', function () {
             $(this).closest('.panel').detach();
