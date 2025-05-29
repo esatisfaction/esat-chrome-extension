@@ -82,7 +82,7 @@ function getIntegration(request, sender, sendResponse) {
     let getIntegrationConfiguration = function () {
         let textarea = document.getElementById('e-satisfaction-configuration-area');
         let configurationSettings = {
-            config: window.Esat ? window.Esat.Config.getConfig() : null,
+            config: window.Esat && window.Esat.Config ? window.Esat.Config.getConfig() : null,
             jquery: window.jQuery !== undefined ? window.jQuery.fn.jquery : null,
             hasGTM: window.google_tag_manager !== undefined,
             hasRequireJs: window.requirejs !== undefined,
