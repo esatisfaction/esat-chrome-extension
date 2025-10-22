@@ -20,6 +20,21 @@ to install this extension, you should:
 7. Turn on the extension
 8. You can find the extension next to the address bar, with the e-satisfaction logo
 
+##  Browser Compatibility & Requirements
+
+This extension uses [Manifest V3](https://developer.chrome.com/docs/extensions/develop/migrate/what-is-mv3), which is used by modern Chromium-based browsers.
+
+The extension has been **tested** on the following browsers:
+
+| **Browser**         | **Tested** |
+|:-------------------:|:----------:|
+| Google Chrome       |    Yes     |
+| Microsoft Edge      |    Yes     |
+| Brave               |    Yes     |
+| Opera               |    Yes     |
+
+>  **Note**: The extension requires a Chromium-based browser with **version 88 or higher**. It may also work on other compatible browsers but it has not been explicitly tested there.
+
 ## Usage
 
 To test the e-satisfaction Integration on your website, you can follow these steps:
